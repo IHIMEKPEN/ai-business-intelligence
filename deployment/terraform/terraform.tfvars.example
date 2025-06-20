@@ -1,0 +1,82 @@
+# AWS Configuration
+aws_region = "us-west-2"
+environment = "production"
+
+# VPC Configuration
+vpc_cidr = "10.0.0.0/16"
+private_subnet_cidrs = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
+public_subnet_cidrs  = ["10.0.101.0/24", "10.0.102.0/24", "10.0.103.0/24"]
+
+# EKS Configuration
+cluster_name = "ai-bi-cluster"
+kubernetes_version = "1.28"
+
+# Node Group Configuration
+app_node_instance_types = ["m5.xlarge", "m5.2xlarge"]
+db_node_instance_types = ["r5.large", "r5.xlarge"]
+monitoring_node_instance_types = ["m5.large"]
+
+app_node_min_size = 2
+app_node_max_size = 10
+app_node_desired_size = 3
+
+db_node_min_size = 2
+db_node_max_size = 6
+db_node_desired_size = 2
+
+monitoring_node_min_size = 1
+monitoring_node_max_size = 3
+monitoring_node_desired_size = 1
+
+# Database Configuration
+enable_rds = false  # Set to true for production
+db_instance_class = "db.r5.large"
+db_allocated_storage = 100
+db_max_allocated_storage = 1000
+db_backup_retention_period = 7
+
+# Redis Configuration
+enable_elasticache = false  # Set to true for production
+redis_node_type = "cache.r5.large"
+redis_num_cache_nodes = 1
+
+# DNS Configuration
+enable_dns = false  # Set to true if you have a domain
+domain_name = "ai-bi.example.com"
+
+# Monitoring Configuration
+enable_monitoring = true
+prometheus_retention_days = 30
+grafana_admin_password = "your-secure-password"
+
+# Security Configuration
+enable_vpc_flow_logs = true
+enable_alb_access_logs = true
+enable_deletion_protection = true
+
+# API Keys (sensitive - use environment variables or AWS Secrets Manager)
+alpha_vantage_api_key = ""
+finnhub_api_key = ""
+openai_api_key = ""
+
+# SMTP Configuration
+smtp_host = ""
+smtp_port = 587
+smtp_username = ""
+smtp_password = ""
+
+# Webhook Configuration
+webhook_url = ""
+webhook_secret = ""
+
+# Monitoring Configuration
+sentry_dsn = ""
+prometheus_token = ""
+
+# Common Tags
+common_tags = {
+  Project     = "ai-business-intelligence"
+  ManagedBy   = "terraform"
+  Owner       = "ai-bi-team"
+  Environment = "production"
+} 

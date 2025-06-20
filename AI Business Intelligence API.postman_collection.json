@@ -1,0 +1,1544 @@
+{
+	"info": {
+		"_postman_id": "4e68f313-280e-44bc-b82a-f6946f67771b",
+		"name": "AI Business Intelligence API",
+		"description": "Comprehensive API collection for the AI Business Intelligence Multi-Agent System. This collection includes all endpoints for agent management, data collection, analysis, insights, reports, and notifications.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35947743",
+		"_collection_link": "https://cfi777.postman.co/workspace/CFI-Workspace~5e90f0b6-59d9-45a0-8365-89fc75f7ab70/collection/35947743-4e68f313-280e-44bc-b82a-f6946f67771b?action=share&source=collection_link&creator=35947743"
+	},
+	"item": [
+		{
+			"name": "System Health & Status",
+			"item": [
+				{
+					"name": "Health Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/health",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"health"
+							]
+						},
+						"description": "Check the health status of the AI Business Intelligence API"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/health",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"health"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Fri, 20 Jun 2025 02:36:59 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-length",
+									"value": "120"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"healthy\",\n    \"timestamp\": \"2025-06-20T02:36:59.921403\",\n    \"service\": \"AI Business Intelligence API\",\n    \"version\": \"1.0.0\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get System Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/status",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"status"
+							]
+						},
+						"description": "Get comprehensive system status including agent counts, task statistics, and system health"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/status",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"status"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Fri, 20 Jun 2025 02:41:05 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-length",
+									"value": "138"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"total_agents\": 4,\n    \"active_agents\": 4,\n    \"pending_tasks\": 0,\n    \"completed_tasks\": 0,\n    \"system_health\": \"healthy\",\n    \"uptime\": \"2025-06-20T02:41:05.706306\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Communication Stats",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/communication/stats",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"communication",
+								"stats"
+							]
+						},
+						"description": "Get communication statistics between agents"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/communication/stats",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"communication",
+										"stats"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Fri, 20 Jun 2025 02:39:32 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-length",
+									"value": "177"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"communication_stats\": {\n        \"message_history_size\": 0,\n        \"active_subscriptions\": {},\n        \"task_routing_count\": 0,\n        \"completed_tasks\": 0,\n        \"agent_loads\": {}\n    },\n    \"timestamp\": \"2025-06-20T02:39:32.501401\"\n}"
+						}
+					]
+				}
+			],
+			"description": "System health and status monitoring endpoints"
+		},
+		{
+			"name": "Agent Management",
+			"item": [
+				{
+					"name": "Get All Agents",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/agents",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"agents"
+							]
+						},
+						"description": "Retrieve list of all registered agents in the system"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/agents",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"agents"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Fri, 20 Jun 2025 02:42:23 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-length",
+									"value": "1455"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"agent_id\": \"data_collector_20250620_024057\",\n        \"name\": \"Data Collector Agent\",\n        \"agent_type\": \"data_collector\",\n        \"status\": \"idle\",\n        \"capabilities\": [\n            \"web_scraping\",\n            \"api_integration\",\n            \"market_data_collection\",\n            \"data_validation\",\n            \"real_time_feeds\"\n        ],\n        \"created_at\": \"2025-06-20T02:40:57.426138\",\n        \"last_active\": \"2025-06-20T02:40:57.427366\"\n    },\n    {\n        \"agent_id\": \"analyzer_20250620_024057\",\n        \"name\": \"Analyzer Agent\",\n        \"agent_type\": \"analyzer\",\n        \"status\": \"idle\",\n        \"capabilities\": [\n            \"data_preprocessing\",\n            \"statistical_analysis\",\n            \"pattern_recognition\",\n            \"trend_analysis\",\n            \"anomaly_detection\",\n            \"time_series_analysis\",\n            \"clustering_analysis\"\n        ],\n        \"created_at\": \"2025-06-20T02:40:57.426409\",\n        \"last_active\": \"2025-06-20T02:40:57.431213\"\n    },\n    {\n        \"agent_id\": \"insight_generator_20250620_024057\",\n        \"name\": \"Insight Generator Agent\",\n        \"agent_type\": \"insight_generator\",\n        \"status\": \"idle\",\n        \"capabilities\": [\n            \"business_intelligence\",\n            \"insight_generation\",\n            \"recommendation_creation\",\n            \"report_generation\",\n            \"predictive_analytics\",\n            \"kpi_analysis\",\n            \"competitive_analysis\",\n            \"ai_powered_insights\"\n        ],\n        \"created_at\": \"2025-06-20T02:40:57.426736\",\n        \"last_active\": \"2025-06-20T02:40:57.431309\"\n    },\n    {\n        \"agent_id\": \"action_executor_20250620_024057\",\n        \"name\": \"Action Executor Agent\",\n        \"agent_type\": \"action_executor\",\n        \"status\": \"idle\",\n        \"capabilities\": [\n            \"action_execution\",\n            \"report_generation\",\n            \"notification_sending\",\n            \"external_integration\",\n            \"workflow_automation\",\n            \"email_notifications\",\n            \"api_integrations\"\n        ],\n        \"created_at\": \"2025-06-20T02:40:57.426971\",\n        \"last_active\": \"2025-06-20T02:40:57.431395\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Specific Agent",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/agents/{{agent_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"agents",
+								"{{agent_id}}"
+							]
+						},
+						"description": "Get detailed information about a specific agent"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/agents/{{agent_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"agents",
+										"{{agent_id}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Fri, 20 Jun 2025 02:43:24 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-length",
+									"value": "317"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"agent_id\": \"data_collector_20250620_024057\",\n    \"name\": \"Data Collector Agent\",\n    \"agent_type\": \"data_collector\",\n    \"status\": \"idle\",\n    \"capabilities\": [\n        \"web_scraping\",\n        \"api_integration\",\n        \"market_data_collection\",\n        \"data_validation\",\n        \"real_time_feeds\"\n    ],\n    \"created_at\": \"2025-06-20T02:40:57.426138\",\n    \"last_active\": \"2025-06-20T02:40:57.427366\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Agent",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"agent_type\": \"data_collector\",\n  \"agent_id\": \"custom_dc_001\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/agents?agent_type=data_collector&agent_id=custom_dc_001",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"agents"
+							],
+							"query": [
+								{
+									"key": "agent_type",
+									"value": "data_collector",
+									"description": "Type of agent to create (data_collector, analyzer, insight_generator, action_executor)"
+								},
+								{
+									"key": "agent_id",
+									"value": "custom_dc_001",
+									"description": "Optional custom agent ID"
+								}
+							]
+						},
+						"description": "Create a new agent of specified type"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"agent_type\": \"data_collector\",\n  \"agent_id\": \"custom_dc_001\"\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/agents?agent_type=data_collector&agent_id=custom_dc_001",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"agents"
+									],
+									"query": [
+										{
+											"key": "agent_type",
+											"value": "data_collector",
+											"description": "Type of agent to create (data_collector, analyzer, insight_generator, action_executor)"
+										},
+										{
+											"key": "agent_id",
+											"value": "custom_dc_001",
+											"description": "Optional custom agent ID"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Fri, 20 Jun 2025 02:43:48 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-length",
+									"value": "130"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"agent_id\": \"custom_dc_001\",\n    \"agent_type\": \"data_collector\",\n    \"status\": \"created\",\n    \"message\": \"Agent custom_dc_001 created successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Agent",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/agents/{{agent_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"agents",
+								"{{agent_id}}"
+							]
+						},
+						"description": "Delete a specific agent from the system"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/agents/{{agent_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"agents",
+										"{{agent_id}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Fri, 20 Jun 2025 02:44:33 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-length",
+									"value": "100"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"agent_id\": \"custom_dc_001\",\n    \"status\": \"deleted\",\n    \"message\": \"Agent custom_dc_001 deleted successfully\"\n}"
+						}
+					]
+				}
+			],
+			"description": "Agent lifecycle management endpoints"
+		},
+		{
+			"name": "Task Management",
+			"item": [
+				{
+					"name": "Submit Task",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"task_type\": \"collect_market_data\",\n  \"parameters\": {\n    \"symbols\": [\"TSLA\", \"GOOGL\"],\n    \"period\": \"1mo\",\n    \"interval\": \"1d\"\n  },\n  \"priority\": 1,\n  \"agent_type\": \"data_collector\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/tasks",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tasks"
+							]
+						},
+						"description": "Submit a task for execution by the appropriate agent"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"task_type\": \"analyze_stocks\",\n  \"parameters\": {\n    \"symbols\": [\"TSLA\", \"GOOGL\"],\n    \"period\": \"1mo\",\n    \"interval\": \"1d\"\n  },\n  \"priority\": 1,\n  \"agent_type\": \"analyzer\"\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/tasks",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"tasks"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Fri, 20 Jun 2025 04:07:13 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-length",
+									"value": "189"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"task_id\": \"4144af94-49f2-4826-bc6a-5a55a49de387\",\n    \"status\": \"submitted\",\n    \"message\": \"Task 4144af94-49f2-4826-bc6a-5a55a49de387 submitted successfully\",\n    \"timestamp\": \"2025-06-20T04:07:14.512572\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Task Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tasks/{{task_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tasks",
+								"{{task_id}}"
+							]
+						},
+						"description": "Get the status and result of a specific task"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/tasks/{{task_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"tasks",
+										"{{task_id}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Fri, 20 Jun 2025 04:57:24 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-length",
+									"value": "7450"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"task_id\": \"7e790bdb-8b75-40fa-881d-c6432458e92d\",\n    \"status\": \"completed\",\n    \"result\": {\n        \"task_type\": \"collect_market_data\",\n        \"symbols\": [\n            \"TSLA\",\n            \"GOOGL\"\n        ],\n        \"results\": {\n            \"TSLA\": {\n                \"symbol\": \"TSLA\",\n                \"period\": \"1mo\",\n                \"interval\": \"1d\",\n                \"data\": [\n                    {\n                        \"Open\": 336.29998779296875,\n                        \"High\": 343,\n                        \"Low\": 333.3699951171875,\n                        \"Close\": 342.0899963378906,\n                        \"Volume\": 88869900,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 347.8699951171875,\n                        \"High\": 354.989990234375,\n                        \"Low\": 341.6300048828125,\n                        \"Close\": 343.82000732421875,\n                        \"Volume\": 131715500,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 344.42999267578125,\n                        \"High\": 347.3500061035156,\n                        \"Low\": 332.20001220703125,\n                        \"Close\": 334.6199951171875,\n                        \"Volume\": 102354800,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 331.8999938964844,\n                        \"High\": 347.2699890136719,\n                        \"Low\": 331.3900146484375,\n                        \"Close\": 341.0400085449219,\n                        \"Volume\": 97113400,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 337.9200134277344,\n                        \"High\": 343.17999267578125,\n                        \"Low\": 333.2099914550781,\n                        \"Close\": 339.3399963378906,\n                        \"Volume\": 84654800,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 347.3500061035156,\n                        \"High\": 363.7900085449219,\n                        \"Low\": 347.32000732421875,\n                        \"Close\": 362.8900146484375,\n                        \"Volume\": 120146400,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 364.8399963378906,\n                        \"High\": 365,\n                        \"Low\": 355.9100036621094,\n                        \"Close\": 356.8999938964844,\n                        \"Volume\": 91404300,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 365.2900085449219,\n                        \"High\": 367.7099914550781,\n                        \"Low\": 356,\n                        \"Close\": 358.42999267578125,\n                        \"Volume\": 88545700,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 355.5199890136719,\n                        \"High\": 363.67999267578125,\n                        \"Low\": 345.2900085449219,\n                        \"Close\": 346.4599914550781,\n                        \"Volume\": 123474900,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 343.5,\n                        \"High\": 348.0199890136719,\n                        \"Low\": 333.3299865722656,\n                        \"Close\": 342.69000244140625,\n                        \"Volume\": 81873800,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 346.6000061035156,\n                        \"High\": 355.3999938964844,\n                        \"Low\": 343.0400085449219,\n                        \"Close\": 344.2699890136719,\n                        \"Volume\": 99324500,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 345.1000061035156,\n                        \"High\": 345.6000061035156,\n                        \"Low\": 327.3299865722656,\n                        \"Close\": 332.04998779296875,\n                        \"Volume\": 98912100,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 322.489990234375,\n                        \"High\": 324.54998779296875,\n                        \"Low\": 273.2099914550781,\n                        \"Close\": 284.70001220703125,\n                        \"Volume\": 287499800,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 298.8299865722656,\n                        \"High\": 305.5,\n                        \"Low\": 291.1400146484375,\n                        \"Close\": 295.1400146484375,\n                        \"Volume\": 164747700,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 285.9599914550781,\n                        \"High\": 309.8299865722656,\n                        \"Low\": 281.8500061035156,\n                        \"Close\": 308.5799865722656,\n                        \"Volume\": 140908900,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 314.94000244140625,\n                        \"High\": 327.8299865722656,\n                        \"Low\": 310.6700134277344,\n                        \"Close\": 326.0899963378906,\n                        \"Volume\": 151256500,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 334.3999938964844,\n                        \"High\": 335.5,\n                        \"Low\": 322.5,\n                        \"Close\": 326.42999267578125,\n                        \"Volume\": 122611400,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 323.0799865722656,\n                        \"High\": 332.55999755859375,\n                        \"Low\": 316.8599853515625,\n                        \"Close\": 319.1099853515625,\n                        \"Volume\": 105127500,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 313.9700012207031,\n                        \"High\": 332.989990234375,\n                        \"Low\": 313.29998779296875,\n                        \"Close\": 325.30999755859375,\n                        \"Volume\": 128964300,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 331.2900085449219,\n                        \"High\": 332.04998779296875,\n                        \"Low\": 326.4100036621094,\n                        \"Close\": 329.1300048828125,\n                        \"Volume\": 83925900,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 326.0899963378906,\n                        \"High\": 327.260009765625,\n                        \"Low\": 314.739990234375,\n                        \"Close\": 316.3500061035156,\n                        \"Volume\": 88282700,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 317.30999755859375,\n                        \"High\": 329.32000732421875,\n                        \"Low\": 315.45001220703125,\n                        \"Close\": 322.04998779296875,\n                        \"Volume\": 95137700,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    }\n                ],\n                \"metadata\": {\n                    \"last_updated\": \"2025-06-20T04:57:04.560987\",\n                    \"rows\": 22,\n                    \"columns\": [\n                        \"Open\",\n                        \"High\",\n                        \"Low\",\n                        \"Close\",\n                        \"Volume\",\n                        \"Dividends\",\n                        \"Stock Splits\"\n                    ]\n                }\n            },\n            \"GOOGL\": {\n                \"symbol\": \"GOOGL\",\n                \"period\": \"1mo\",\n                \"interval\": \"1d\",\n                \"data\": [\n                    {\n                        \"Open\": 164.311078821177,\n                        \"High\": 166.43850822896752,\n                        \"Low\": 164.02143617765117,\n                        \"Close\": 166.338623046875,\n                        \"Volume\": 30426100,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 166.22875761227516,\n                        \"High\": 168.2962620339302,\n                        \"Low\": 162.7030270512069,\n                        \"Close\": 163.78172302246094,\n                        \"Volume\": 46607700,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 163.49207927319333,\n                        \"High\": 172.93064990762463,\n                        \"Low\": 163.36223158372133,\n                        \"Close\": 168.35618591308594,\n                        \"Volume\": 73416000,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 171.6422171391164,\n                        \"High\": 176.55626639163424,\n                        \"Low\": 170.50359615670786,\n                        \"Close\": 170.66339111328125,\n                        \"Volume\": 74864400,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 168.85557933287677,\n                        \"High\": 169.7545002456487,\n                        \"Low\": 167.68699586257836,\n                        \"Close\": 168.26629638671875,\n                        \"Volume\": 35211400,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 169.9542560308247,\n                        \"High\": 172.9606110264557,\n                        \"Low\": 169.79444583588602,\n                        \"Close\": 172.69093322753906,\n                        \"Volume\": 37995700,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 172.95063181853965,\n                        \"High\": 175.0580811773991,\n                        \"Low\": 171.70214322301487,\n                        \"Close\": 172.15159606933594,\n                        \"Volume\": 34784000,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 173.78960291012612,\n                        \"High\": 174.20909322624098,\n                        \"Low\": 170.42368271917738,\n                        \"Close\": 171.65219116210938,\n                        \"Volume\": 29373800,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 171.14282080509608,\n                        \"High\": 172.0017815585655,\n                        \"Low\": 167.23754486546525,\n                        \"Close\": 171.5323486328125,\n                        \"Volume\": 52639900,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 167.637058963566,\n                        \"High\": 169.66460324672883,\n                        \"Low\": 167.18760611208933,\n                        \"Close\": 168.82562255859375,\n                        \"Volume\": 38612300,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 167.28749382619188,\n                        \"High\": 168.276287066322,\n                        \"Low\": 165.08015922486254,\n                        \"Close\": 165.97906494140625,\n                        \"Volume\": 45084900,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 166.53838821108508,\n                        \"High\": 168.01659436979696,\n                        \"Low\": 166.15884281939123,\n                        \"Close\": 167.8468017578125,\n                        \"Volume\": 26900800,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 170.1340365467451,\n                        \"High\": 170.72331951416996,\n                        \"Low\": 167.3873615992156,\n                        \"Close\": 168.00662231445312,\n                        \"Volume\": 36379100,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 170.6234412090639,\n                        \"High\": 174.2890017669552,\n                        \"Low\": 170.6234412090639,\n                        \"Close\": 173.46998596191406,\n                        \"Volume\": 35731800,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 174.5399932861328,\n                        \"High\": 176.47000122070312,\n                        \"Low\": 174.3699951171875,\n                        \"Close\": 176.08999633789062,\n                        \"Volume\": 28935900,\n                        \"Dividends\": 0.21,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 176.1999969482422,\n                        \"High\": 181.11000061035156,\n                        \"Low\": 174.91000366210938,\n                        \"Close\": 178.60000610351562,\n                        \"Volume\": 61766100,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 179.77000427246094,\n                        \"High\": 180.3699951171875,\n                        \"Low\": 176.75,\n                        \"Close\": 177.35000610351562,\n                        \"Volume\": 31646800,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 176.17999267578125,\n                        \"High\": 176.72000122070312,\n                        \"Low\": 174.75,\n                        \"Close\": 175.6999969482422,\n                        \"Volume\": 20941900,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 172.44000244140625,\n                        \"High\": 177.1300048828125,\n                        \"Low\": 172.38999938964844,\n                        \"Close\": 174.6699981689453,\n                        \"Volume\": 27663100,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 174.72999572753906,\n                        \"High\": 176.94000244140625,\n                        \"Low\": 174.64999389648438,\n                        \"Close\": 176.77000427246094,\n                        \"Volume\": 27389200,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 175.6999969482422,\n                        \"High\": 177.36000061035156,\n                        \"Low\": 174.5800018310547,\n                        \"Close\": 175.9499969482422,\n                        \"Volume\": 24973000,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    },\n                    {\n                        \"Open\": 176.00999450683594,\n                        \"High\": 176.55999755859375,\n                        \"Low\": 173.1999969482422,\n                        \"Close\": 173.32000732421875,\n                        \"Volume\": 28707500,\n                        \"Dividends\": 0,\n                        \"Stock Splits\": 0\n                    }\n                ],\n                \"metadata\": {\n                    \"last_updated\": \"2025-06-20T04:57:04.676879\",\n                    \"rows\": 22,\n                    \"columns\": [\n                        \"Open\",\n                        \"High\",\n                        \"Low\",\n                        \"Close\",\n                        \"Volume\",\n                        \"Dividends\",\n                        \"Stock Splits\"\n                    ]\n                }\n            }\n        },\n        \"timestamp\": \"2025-06-20T04:57:04.677068\"\n    },\n    \"timestamp\": \"2025-06-20T04:57:25.149717\"\n}"
+						}
+					]
+				}
+			],
+			"description": "Task submission and monitoring endpoints"
+		},
+		{
+			"name": "Data Collection",
+			"item": [
+				{
+					"name": "Collect Data",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data_sources\": [\"yfinance\", \"alpha_vantage\"],\n  \"collection_type\": \"standard\",\n  \"parameters\": {\n    \"symbols\": [\"TSLA\", \"GOOGL\", \"AAPL\"],\n    \"period\": \"1mo\",\n    \"interval\": \"1d\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/data/collect",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"data",
+								"collect"
+							]
+						},
+						"description": "Collect data from specified sources"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"data_sources\": [\"yfinance\", \"alpha_vantage\"],\n  \"collection_type\": \"standard\",\n  \"parameters\": {\n    \"symbols\": [\"TSLA\", \"GOOGL\", \"AAPL\"],\n    \"period\": \"1mo\",\n    \"interval\": \"1d\"\n  }\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/data/collect",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"data",
+										"collect"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Fri, 20 Jun 2025 04:58:14 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-length",
+									"value": "236"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"task_id\": \"cac781af-f896-47d7-8977-884f206b4dab\",\n    \"status\": \"submitted\",\n    \"message\": \"Data collection task cac781af-f896-47d7-8977-884f206b4dab submitted\",\n    \"data_sources\": [\n        \"yfinance\",\n        \"alpha_vantage\"\n    ],\n    \"timestamp\": \"2025-06-20T04:58:14.993116\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Available Data Sources",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/data/sources",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"data",
+								"sources"
+							]
+						},
+						"description": "Get list of available data sources"
+					},
+					"response": []
+				}
+			],
+			"description": "Data collection and source management endpoints"
+		},
+		{
+			"name": "Data Analysis",
+			"item": [
+				{
+					"name": "Analyze Data",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": {\n    \"symbol\": \"TSLA\",\n    \"prices\": [100, 105, 110, 108, 115],\n    \"volumes\": [1000000, 1200000, 1100000, 1300000, 1400000]\n  },\n  \"analysis_type\": \"trend_analysis\",\n  \"parameters\": {\n    \"trend_period\": 7,\n    \"confidence_level\": 0.95\n  }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/analysis",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"analysis"
+							]
+						},
+						"description": "Analyze data using specified analysis type"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"data\": {\n    \"symbol\": \"TSLA\",\n    \"prices\": [100, 105, 110, 108, 115],\n    \"volumes\": [1000000, 1200000, 1100000, 1300000, 1400000]\n  },\n  \"analysis_type\": \"trend_analysis\",\n  \"parameters\": {\n    \"trend_period\": 7,\n    \"confidence_level\": 0.95\n  }\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/analysis",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"analysis"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Fri, 20 Jun 2025 05:20:45 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-length",
+									"value": "218"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"task_id\": \"8c4026e7-fabc-459e-980c-5d287c2ff4d3\",\n    \"status\": \"submitted\",\n    \"message\": \"Analysis task 8c4026e7-fabc-459e-980c-5d287c2ff4d3 submitted\",\n    \"analysis_type\": \"trend_analysis\",\n    \"timestamp\": \"2025-06-20T05:20:46.673685\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Analysis Types",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/analysis/types",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"analysis",
+								"types"
+							]
+						},
+						"description": "Get available analysis types"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/analysis/types",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"analysis",
+										"types"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Fri, 20 Jun 2025 05:25:43 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-length",
+									"value": "235"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"available_analysis_types\": [\n        \"data_preprocessing\",\n        \"pattern_recognition\",\n        \"trend_analysis\",\n        \"time_series_analysis\",\n        \"clustering_analysis\",\n        \"anomaly_detection\",\n        \"statistical_analysis\"\n    ],\n    \"total_types\": 7,\n    \"timestamp\": \"2025-06-20T05:25:44.278313\"\n}"
+						}
+					]
+				}
+			],
+			"description": "Data analysis and processing endpoints"
+		},
+		{
+			"name": "Insight Generation",
+			"item": [
+				{
+					"name": "Generate Insights",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"analysis_results\": {\n    \"trend_analysis\": {\n      \"trend\": \"bullish\",\n      \"slope\": 0.05,\n      \"r_squared\": 0.85\n    },\n    \"pattern_recognition\": {\n      \"patterns\": [\"uptrend\", \"support_level\"]\n    }\n  },\n  \"business_context\": {\n    \"industry\": \"technology\",\n    \"market_cap\": 1000000000,\n    \"risk_tolerance\": \"medium\"\n  },\n  \"categories\": [\"trends\", \"patterns\", \"anomalies\"]\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/insights",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"insights"
+							]
+						},
+						"description": "Generate business insights from analysis results"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"analysis_results\": {\n    \"trend_analysis\": {\n      \"trend\": \"bullish\",\n      \"slope\": 0.05,\n      \"r_squared\": 0.85\n    },\n    \"pattern_recognition\": {\n      \"patterns\": [\"uptrend\", \"support_level\"]\n    }\n  },\n  \"business_context\": {\n    \"industry\": \"technology\",\n    \"market_cap\": 1000000000,\n    \"risk_tolerance\": \"medium\"\n  },\n  \"categories\": [\"trends\", \"patterns\", \"anomalies\"]\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/insights",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"insights"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Fri, 20 Jun 2025 05:21:10 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-length",
+									"value": "195"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"task_id\": \"7f6c570b-5112-483d-bad5-51e09fde7ea4\",\n    \"status\": \"submitted\",\n    \"message\": \"Insight generation task 7f6c570b-5112-483d-bad5-51e09fde7ea4 submitted\",\n    \"timestamp\": \"2025-06-20T05:21:10.698812\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Recent Insights",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/insights/recent?limit=10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"insights",
+								"recent"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10",
+									"description": "Number of recent insights to retrieve"
+								}
+							]
+						},
+						"description": "Get recent insights generated by the system"
+					},
+					"response": []
+				}
+			],
+			"description": "Business insight generation endpoints"
+		},
+		{
+			"name": "Report Generation",
+			"item": [
+				{
+					"name": "Generate Report",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"report_type\": \"market_analysis\",\n  \"report_data\": {\n    \"analysis_results\": {\n      \"stocks\": {\"TSLA\": {\"trend\": \"bullish\"}},\n      \"forex\": {\"EUR/USD\": {\"trend\": \"neutral\"}},\n      \"crypto\": {\"BTC-USD\": {\"trend\": \"bullish\"}}\n    },\n    \"insights\": [\n      {\n        \"title\": \"Market Overview\",\n        \"description\": \"Overall market sentiment is positive\"\n      }\n    ]\n  },\n  \"format\": \"json\",\n  \"output_path\": \"/reports/market_analysis_2024.json\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/reports",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"reports"
+							]
+						},
+						"description": "Generate a report based on specified data and format"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"report_type\": \"market_analysis\",\n  \"report_data\": {\n    \"analysis_results\": {\n      \"stocks\": {\"TSLA\": {\"trend\": \"bullish\"}},\n      \"forex\": {\"EUR/USD\": {\"trend\": \"neutral\"}},\n      \"crypto\": {\"BTC-USD\": {\"trend\": \"bullish\"}}\n    },\n    \"insights\": [\n      {\n        \"title\": \"Market Overview\",\n        \"description\": \"Overall market sentiment is positive\"\n      }\n    ]\n  },\n  \"format\": \"json\",\n  \"output_path\": \"/reports/market_analysis_2024.json\"\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/reports",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"reports"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Fri, 20 Jun 2025 05:21:36 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-length",
+									"value": "242"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"task_id\": \"3ae447c7-cd27-498a-bb1e-ed435b7a8973\",\n    \"status\": \"submitted\",\n    \"message\": \"Report generation task 3ae447c7-cd27-498a-bb1e-ed435b7a8973 submitted\",\n    \"report_type\": \"market_analysis\",\n    \"format\": \"json\",\n    \"timestamp\": \"2025-06-20T05:21:36.843403\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Report Types",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/reports/types",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"reports",
+								"types"
+							]
+						},
+						"description": "Get available report types"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/reports/types",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"reports",
+										"types"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Fri, 20 Jun 2025 05:24:34 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-length",
+									"value": "105"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"available_report_types\": [\n        \"report_generation\"\n    ],\n    \"total_types\": 1,\n    \"timestamp\": \"2025-06-20T05:24:35.223275\"\n}"
+						}
+					]
+				}
+			],
+			"description": "Report generation and management endpoints"
+		},
+		{
+			"name": "Notifications",
+			"item": [
+				{
+					"name": "Send Notification",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"notification_type\": \"alert\",\n  \"recipients\": [\"oihimekpen@gmail.com\", \"oihimekpen@outlook.com\"],\n  \"message\": \"Market analysis completed for TSLA and GOOGL\",\n  \"subject\": \"Market Analysis Alert\",\n  \"priority\": \"high\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/notifications",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"notifications"
+							]
+						},
+						"description": "Send a notification to specified recipients"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"notification_type\": \"alert\",\n  \"recipients\": [\"oihimekpen@gmail.com\", \"oihimekpen@outlook.com\"],\n  \"message\": \"Market analysis completed for TSLA and GOOGL\",\n  \"subject\": \"Market Analysis Alert\",\n  \"priority\": \"high\"\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/notifications",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"notifications"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Fri, 20 Jun 2025 05:22:31 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-length",
+									"value": "280"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"task_id\": \"47f3b66b-468a-4db9-9577-8d66d6bfa5a1\",\n    \"status\": \"submitted\",\n    \"message\": \"Notification task 47f3b66b-468a-4db9-9577-8d66d6bfa5a1 submitted\",\n    \"notification_type\": \"alert\",\n    \"recipients\": [\n        \"oihimekpen@gmail.com\",\n        \"oihimekpen@outlook.com\"\n    ],\n    \"timestamp\": \"2025-06-20T05:22:31.877327\"\n}"
+						}
+					]
+				}
+			],
+			"description": "Notification and alert endpoints"
+		},
+		{
+			"name": "Market Analysis Examples",
+			"item": [
+				{
+					"name": "Stock Analysis Task",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"task_type\": \"analyze_stocks\",\n  \"parameters\": {\n    \"symbols\": [\"TSLA\", \"GOOGL\", \"AAPL\", \"MSFT\"],\n    \"period\": \"1mo\",\n    \"interval\": \"1d\",\n    \"analysis_types\": [\"trend_analysis\", \"technical_indicators\", \"volatility_analysis\"]\n  },\n  \"priority\": 1,\n  \"agent_type\": \"analyzer\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/tasks",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tasks"
+							]
+						},
+						"description": "Submit a stock analysis task for multiple symbols"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"task_type\": \"analyze_stocks\",\n  \"parameters\": {\n    \"symbols\": [\"TSLA\", \"GOOGL\", \"AAPL\", \"MSFT\"],\n    \"period\": \"1mo\",\n    \"interval\": \"1d\",\n    \"analysis_types\": [\"trend_analysis\", \"technical_indicators\", \"volatility_analysis\"]\n  },\n  \"priority\": 1,\n  \"agent_type\": \"analyzer\"\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/tasks",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"tasks"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Fri, 20 Jun 2025 05:22:57 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-length",
+									"value": "189"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"task_id\": \"bfd8bede-8258-47cf-ab29-bcba46d28376\",\n    \"status\": \"submitted\",\n    \"message\": \"Task bfd8bede-8258-47cf-ab29-bcba46d28376 submitted successfully\",\n    \"timestamp\": \"2025-06-20T05:22:57.406616\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Forex Analysis Task",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"task_type\": \"analyze_forex\",\n  \"parameters\": {\n    \"pairs\": [\"EUR/USD\", \"GBP/USD\", \"USD/JPY\", \"USD/CHF\"],\n    \"interval\": \"1min\",\n    \"analysis_types\": [\"trend_analysis\", \"correlation_analysis\"]\n  },\n  \"priority\": 2,\n  \"agent_type\": \"analyzer\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/tasks",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tasks"
+							]
+						},
+						"description": "Submit a forex analysis task for multiple currency pairs"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"task_type\": \"analyze_forex\",\n  \"parameters\": {\n    \"pairs\": [\"EUR/USD\", \"GBP/USD\", \"USD/JPY\", \"USD/CHF\"],\n    \"interval\": \"1min\",\n    \"analysis_types\": [\"trend_analysis\", \"correlation_analysis\"]\n  },\n  \"priority\": 2,\n  \"agent_type\": \"analyzer\"\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/tasks",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"tasks"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Fri, 20 Jun 2025 05:23:13 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-length",
+									"value": "189"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"task_id\": \"edfa089d-bfe6-4306-94e7-e7f24d2e589f\",\n    \"status\": \"submitted\",\n    \"message\": \"Task edfa089d-bfe6-4306-94e7-e7f24d2e589f submitted successfully\",\n    \"timestamp\": \"2025-06-20T05:23:13.969086\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Crypto Analysis Task",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"task_type\": \"analyze_crypto\",\n  \"parameters\": {\n    \"symbols\": [\"BTC-USD\", \"ETH-USD\", \"ADA-USD\", \"DOT-USD\"],\n    \"period\": \"1mo\",\n    \"analysis_types\": [\"trend_analysis\", \"volatility_analysis\", \"market_sentiment\"]\n  },\n  \"priority\": 2,\n  \"agent_type\": \"analyzer\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/tasks",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tasks"
+							]
+						},
+						"description": "Submit a cryptocurrency analysis task for multiple coins"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"task_type\": \"analyze_crypto\",\n  \"parameters\": {\n    \"symbols\": [\"BTC-USD\", \"ETH-USD\", \"ADA-USD\", \"DOT-USD\"],\n    \"period\": \"1mo\",\n    \"analysis_types\": [\"trend_analysis\", \"volatility_analysis\", \"market_sentiment\"]\n  },\n  \"priority\": 2,\n  \"agent_type\": \"analyzer\"\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/tasks",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"tasks"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Fri, 20 Jun 2025 05:23:28 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-length",
+									"value": "189"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"task_id\": \"6a5796c5-a3c1-4598-909b-ac5fad2fcf21\",\n    \"status\": \"submitted\",\n    \"message\": \"Task 6a5796c5-a3c1-4598-909b-ac5fad2fcf21 submitted successfully\",\n    \"timestamp\": \"2025-06-20T05:23:29.517878\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Comprehensive Market Analysis",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"task_type\": \"generate_comprehensive_insights\",\n  \"parameters\": {\n    \"analysis_results\": {\n      \"stocks\": {\n        \"TSLA\": {\"trend\": \"bullish\", \"confidence\": 0.85},\n        \"GOOGL\": {\"trend\": \"neutral\", \"confidence\": 0.72}\n      },\n      \"forex\": {\n        \"EUR/USD\": {\"trend\": \"bearish\", \"confidence\": 0.68}\n      },\n      \"crypto\": {\n        \"BTC-USD\": {\"trend\": \"bullish\", \"confidence\": 0.91}\n      }\n    },\n    \"market_context\": {\n      \"analysis_date\": \"2024-01-15T10:00:00Z\",\n      \"markets_analyzed\": [\"stocks\", \"forex\", \"crypto\"],\n      \"risk_level\": \"medium\"\n    }\n  },\n  \"priority\": 3,\n  \"agent_type\": \"insight_generator\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/tasks",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tasks"
+							]
+						},
+						"description": "Generate comprehensive insights across multiple market types"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"task_type\": \"generate_comprehensive_insights\",\n  \"parameters\": {\n    \"analysis_results\": {\n      \"stocks\": {\n        \"TSLA\": {\"trend\": \"bullish\", \"confidence\": 0.85},\n        \"GOOGL\": {\"trend\": \"neutral\", \"confidence\": 0.72}\n      },\n      \"forex\": {\n        \"EUR/USD\": {\"trend\": \"bearish\", \"confidence\": 0.68}\n      },\n      \"crypto\": {\n        \"BTC-USD\": {\"trend\": \"bullish\", \"confidence\": 0.91}\n      }\n    },\n    \"market_context\": {\n      \"analysis_date\": \"2024-01-15T10:00:00Z\",\n      \"markets_analyzed\": [\"stocks\", \"forex\", \"crypto\"],\n      \"risk_level\": \"medium\"\n    }\n  },\n  \"priority\": 3,\n  \"agent_type\": \"insight_generator\"\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/tasks",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"tasks"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Fri, 20 Jun 2025 05:23:40 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-length",
+									"value": "189"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"task_id\": \"e198c8d8-6fd6-46fc-b561-0c0bab7eca98\",\n    \"status\": \"submitted\",\n    \"message\": \"Task e198c8d8-6fd6-46fc-b561-0c0bab7eca98 submitted successfully\",\n    \"timestamp\": \"2025-06-20T05:23:41.842410\"\n}"
+						}
+					]
+				}
+			],
+			"description": "Example market analysis tasks for different asset types"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000",
+			"type": "string"
+		},
+		{
+			"key": "agent_id",
+			"value": "analyzer_001",
+			"type": "string"
+		},
+		{
+			"key": "task_id",
+			"value": "task_12345",
+			"type": "string"
+		}
+	]
+}

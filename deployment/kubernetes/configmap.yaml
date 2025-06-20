@@ -1,0 +1,66 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ai-bi-config
+  namespace: ai-business-intelligence
+  labels:
+    app: ai-bi-system
+data:
+  # Application Configuration
+  LOG_LEVEL: "INFO"
+  ENVIRONMENT: "production"
+  API_VERSION: "v1"
+  
+  # Database Configuration
+  DATABASE_URL: "postgresql://ai_bi_user:${DB_PASSWORD}@ai-bi-postgres:5432/ai_business_intelligence"
+  REDIS_URL: "redis://ai-bi-redis:6379/0"
+  
+  # Agent Configuration
+  MAX_AGENTS: "10"
+  TASK_TIMEOUT: "300"
+  AGENT_HEARTBEAT_INTERVAL: "30"
+  
+  # API Configuration
+  API_HOST: "0.0.0.0"
+  API_PORT: "8000"
+  CORS_ORIGINS: "https://ai-bi-frontend.example.com,https://admin.example.com"
+  
+  # Monitoring Configuration
+  METRICS_PORT: "9090"
+  HEALTH_CHECK_INTERVAL: "30"
+  
+  # Security Configuration
+  JWT_SECRET_KEY: "${JWT_SECRET}"
+  JWT_ALGORITHM: "HS256"
+  JWT_EXPIRATION: "3600"
+  
+  # Rate Limiting
+  RATE_LIMIT_REQUESTS: "100"
+  RATE_LIMIT_WINDOW: "60"
+  
+  # Cache Configuration
+  CACHE_TTL: "3600"
+  CACHE_MAX_SIZE: "1000"
+  
+  # External API Configuration
+  ALPHA_VANTAGE_API_KEY: "${ALPHA_VANTAGE_API_KEY}"
+  FINNHUB_API_KEY: "${FINNHUB_API_KEY}"
+  OPENAI_API_KEY: "${OPENAI_API_KEY}"
+  
+  # Model Configuration
+  MODEL_CACHE_DIR: "/app/models"
+  MODEL_DOWNLOAD_TIMEOUT: "300"
+  
+  # File Storage
+  UPLOAD_DIR: "/app/uploads"
+  MAX_FILE_SIZE: "10485760"  # 10MB
+  
+  # Notification Configuration
+  SMTP_HOST: "${SMTP_HOST}"
+  SMTP_PORT: "${SMTP_PORT}"
+  SMTP_USERNAME: "${SMTP_USERNAME}"
+  SMTP_PASSWORD: "${SMTP_PASSWORD}"
+  
+  # Webhook Configuration
+  WEBHOOK_URL: "${WEBHOOK_URL}"
+  WEBHOOK_SECRET: "${WEBHOOK_SECRET}" 
