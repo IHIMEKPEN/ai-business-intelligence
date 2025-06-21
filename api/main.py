@@ -116,6 +116,23 @@ class NotificationRequest(BaseModel):
     priority: str = Field(default="normal", description="Notification priority")
 
 
+class CryptoAnalysisRequest(BaseModel):
+    """Request model for crypto analysis"""
+    symbols: List[str] = Field(..., description="List of crypto symbols to analyze")
+
+
+class StockAnalysisRequest(BaseModel):
+    """Request model for stock analysis"""
+    symbols: List[str] = Field(..., description="List of stock symbols to analyze")
+    period: str = Field(default="1mo", description="Time period for analysis")
+    interval: str = Field(default="1d", description="Data interval")
+
+
+class ForexAnalysisRequest(BaseModel):
+    """Request model for forex analysis"""
+    pairs: List[str] = Field(..., description="List of forex pairs to analyze")
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Application lifespan manager"""
@@ -532,7 +549,7 @@ async def analyze_data(request: AnalysisRequest, background_tasks: BackgroundTas
 
 
 @app.post("/analysis/stocks")
-async def analyze_stocks(symbols: List[str], period: str = "1mo", interval: str = "1d", background_tasks: BackgroundTasks = None):
+async def analyze_stocks(request: StockAnalysisRequest, background_tasks: BackgroundTasks = None):
     """Analyze stock data for given symbols"""
     try:
         import yfinance as yf
@@ -541,10 +558,10 @@ async def analyze_stocks(symbols: List[str], period: str = "1mo", interval: str 
         # Collect stock data
         stock_data = {}
         
-        for symbol in symbols:
+        for symbol in request.symbols:
             try:
                 ticker = yf.Ticker(symbol)
-                hist_data = ticker.history(period=period, interval=interval)
+                hist_data = ticker.history(period=request.period, interval=request.interval)
                 
                 if not hist_data.empty:
                     stock_data[symbol.lower()] = {
@@ -571,13 +588,13 @@ async def analyze_stocks(symbols: List[str], period: str = "1mo", interval: str 
             priority=2
         )
         
-        logger.info("Stock analysis task submitted", task_id=task_id, symbols=symbols)
+        logger.info("Stock analysis task submitted", task_id=task_id, symbols=request.symbols)
         
         return {
             "task_id": task_id,
             "status": "submitted",
             "message": f"Stock analysis task {task_id} submitted",
-            "symbols": symbols,
+            "symbols": request.symbols,
             "data_collected": list(stock_data.keys()),
             "timestamp": datetime.utcnow().isoformat()
         }
@@ -590,7 +607,7 @@ async def analyze_stocks(symbols: List[str], period: str = "1mo", interval: str 
 
 
 @app.post("/analysis/forex")
-async def analyze_forex(pairs: List[str], background_tasks: BackgroundTasks = None):
+async def analyze_forex(request: ForexAnalysisRequest, background_tasks: BackgroundTasks = None):
     """Analyze forex data for given currency pairs"""
     try:
         import yfinance as yf
@@ -598,7 +615,7 @@ async def analyze_forex(pairs: List[str], background_tasks: BackgroundTasks = No
         # Collect forex data
         forex_data = {}
         
-        for pair in pairs:
+        for pair in request.pairs:
             try:
                 # Use yfinance for forex data
                 ticker = yf.Ticker(f"{pair}=X")
@@ -629,17 +646,17 @@ async def analyze_forex(pairs: List[str], background_tasks: BackgroundTasks = No
         # Submit forex analysis task with collected data
         task_id = await communication_manager.send_task_request(
             "analyze_forex",
-            {"forex_data": forex_data, "pairs": pairs},
+            {"forex_data": forex_data, "pairs": request.pairs},
             priority=2
         )
         
-        logger.info("Forex analysis task submitted", task_id=task_id, pairs=pairs)
+        logger.info("Forex analysis task submitted", task_id=task_id, pairs=request.pairs)
         
         return {
             "task_id": task_id,
             "status": "submitted",
             "message": f"Forex analysis task {task_id} submitted",
-            "pairs": pairs,
+            "pairs": request.pairs,
             "data_collected": list(forex_data.keys()),
             "timestamp": datetime.utcnow().isoformat()
         }
@@ -652,7 +669,7 @@ async def analyze_forex(pairs: List[str], background_tasks: BackgroundTasks = No
 
 
 @app.post("/analysis/crypto")
-async def analyze_crypto(symbols: List[str], background_tasks: BackgroundTasks = None):
+async def analyze_crypto(request: CryptoAnalysisRequest, background_tasks: BackgroundTasks = None):
     """Analyze cryptocurrency data for given symbols"""
     try:
         import yfinance as yf
@@ -660,7 +677,7 @@ async def analyze_crypto(symbols: List[str], background_tasks: BackgroundTasks =
         # Collect crypto data
         crypto_data = {}
         
-        for symbol in symbols:
+        for symbol in request.symbols:
             try:
                 ticker = yf.Ticker(symbol)
                 hist_data = ticker.history(period="5d", interval="1d")
@@ -696,13 +713,13 @@ async def analyze_crypto(symbols: List[str], background_tasks: BackgroundTasks =
             priority=2
         )
         
-        logger.info("Crypto analysis task submitted", task_id=task_id, symbols=symbols)
+        logger.info("Crypto analysis task submitted", task_id=task_id, symbols=request.symbols)
         
         return {
             "task_id": task_id,
             "status": "submitted",
             "message": f"Crypto analysis task {task_id} submitted",
-            "symbols": symbols,
+            "symbols": request.symbols,
             "data_collected": list(crypto_data.keys()),
             "timestamp": datetime.utcnow().isoformat()
         }
